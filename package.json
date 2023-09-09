@@ -1,0 +1,35 @@
+{
+  "name": "hey-tooltip",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./esm/index.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "genpack:build:esm": "to-esm ./cjs/index.cjs --output ./esm --update-all --extension .mjs",
+    "genpack:build:dts": "tsc ./esm/index.mjs --declaration --allowJs --emitDeclarationOnly --outDir .",
+    "genpack:build:test": "to-esm test/*.specs.cjs --output ./test/ --target esm --skipEsmResolution --skipLinks",
+    "genpack:build:all": "npm run genpack:build:esm && npm run genpack:build:dts && npm run genpack:build:test",
+    "genpack:test:ts": "nyc mocha --config test/config/.mocharc.json",
+    "genpack:test:js": "nyc mocha",
+    "genpack:test": "npm run genpack:build:all && npm run genpack:test:js && npm run genpack:test:ts"
+  },
+  "keywords": [],
+  "author": "Patrice THIMOTHEE",
+  "license": "ISC",
+  "typings": "./index.d.mts",
+  "type": "module",
+  "devDependencies": {
+    "@types/chai": "^4.3.6",
+    "@types/mocha": "^10.0.1",
+    "chai": "^4.3.8",
+    "mocha": "^10.2.0",
+    "nyc": "^15.1.0",
+    "to-esm": "^2.27.3",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  },
+  "exports": {
+    "require": "./cjs/index.cjs",
+    "import": "./esm/index.mjs"
+  }
+}
