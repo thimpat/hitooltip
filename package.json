@@ -11,16 +11,6 @@
   "license": "ISC",
   "typings": "./index.d.mts",
   "type": "module",
-  "devDependencies": {
-    "@types/chai": "^4.3.6",
-    "@types/mocha": "^10.0.1",
-    "chai": "^4.3.8",
-    "mocha": "^10.2.0",
-    "nyc": "^15.1.0",
-    "to-esm": "^2.27.3",
-    "ts-node": "^10.9.1",
-    "typescript": "^5.2.2"
-  },
   "exports": {
     "import": "./esm/index.mjs",
     "browser": "./esm/index.mjs"
