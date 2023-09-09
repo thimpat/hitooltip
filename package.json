@@ -4,14 +4,7 @@
   "description": "",
   "main": "./esm/index.mjs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "genpack:build:esm": "to-esm ./cjs/index.cjs --output ./esm --update-all --extension .mjs",
-    "genpack:build:dts": "tsc ./esm/index.mjs --declaration --allowJs --emitDeclarationOnly --outDir .",
-    "genpack:build:test": "to-esm test/*.specs.cjs --output ./test/ --target esm --skipEsmResolution --skipLinks",
-    "genpack:build:all": "npm run genpack:build:esm && npm run genpack:build:dts && npm run genpack:build:test",
-    "genpack:test:ts": "nyc mocha --config test/config/.mocharc.json",
-    "genpack:test:js": "nyc mocha",
-    "genpack:test": "npm run genpack:build:all && npm run genpack:test:js && npm run genpack:test:ts"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "Patrice THIMOTHEE",
