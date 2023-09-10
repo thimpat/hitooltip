@@ -9,7 +9,8 @@
     "compile:scss": "npm run compile:scss:standard && npm run compile:scss:min",
     "minify:js": "uglifyjs js/hitooltip.js -o dist/hitooltip.min.js",
     "demo": "genserve restart tooltipdemo --dir ./",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:all": "npm run compile:scss && npm run minify:js"
   },
   "keywords": [],
   "author": "Patrice THIMOTHEE",
