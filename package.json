@@ -2,8 +2,13 @@
   "name": "hitooltip",
   "version": "1.0.0",
   "description": "",
-  "main": "./esm/index.mjs",
+  "main": "js/hitooltip.js",
   "scripts": {
+    "compile:scss:min": "sass.cmd css/hitooltip.scss:./dist/hitooltip.min.css --style=compressed --no-source-map",
+    "compile:scss:standard": "sass.cmd css/hitooltip.scss:./dist/hitooltip.css --no-source-map",
+    "compile:scss": "npm run compile:scss:standard && npm run compile:scss:min",
+    "minify:js": "uglifyjs js/hitooltip.js -o dist/hitooltip.min.js",
+    "demo": "genserve restart tooltipdemo --dir ./",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -14,5 +19,12 @@
   "exports": {
     "import": "./esm/index.mjs",
     "browser": "./esm/index.mjs"
+  },
+  "dependencies": {
+    "sass": "^1.66.1"
+  },
+  "devDependencies": {
+    "genserve": "^5.7.1",
+    "uglify-js": "^3.17.4"
   }
 }
