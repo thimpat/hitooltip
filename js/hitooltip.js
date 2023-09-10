@@ -85,11 +85,25 @@ export const getHiTooltipOptions = function ()
 
 /**
  * Returns option value for a particular key
+ * @param currentTarget
  * @param optionName
  * @returns {*}
  */
-export const getOption = function (optionName)
+export const getOption = function (currentTarget = null, optionName = "")
 {
+    if (!optionName)
+    {
+        return ;
+    }
+
+    if (currentTarget)
+    {
+        const dataname = "hitooltip" + optionName.charAt(0).toUpperCase() + optionName.slice(1);
+        if (currentTarget.dataset.hasOwnProperty(dataname))
+        {
+            return currentTarget.dataset[dataname];
+        }
+    }
     const options = getHiTooltipOptions();
     return options[optionName];
 };
@@ -245,12 +259,11 @@ const getTooltipCharacteristics = function ()
 
 const hideHiTooltipContent = function (event, currentTarget = null)
 {
-    console.log(`hideHiTooltipContent`);
     const { $tooltip } = getTooltipCharacteristics();
     $tooltip.classList.add("hitooltip-hidden");
     $tooltip.classList.remove("hitooltip-shown");
 
-    const delay = getOption(OPTIONS.DELAY) + getOption(OPTIONS.SECONDARY_DELAY);
+    const delay = getOption(currentTarget, OPTIONS.DELAY) + getOption(currentTarget, OPTIONS.SECONDARY_DELAY);
 
     clearTimeout(onMouseOverDelayTimerID);
     onMouseOverDelayTimerID = null;
@@ -261,7 +274,7 @@ const hideHiTooltipContent = function (event, currentTarget = null)
 
     onMouseOutTimerID = setTimeout(function ()
     {
-        const onHide = getOption(OPTIONS.ON_HIDE);
+        const onHide = getOption(currentTarget, OPTIONS.ON_HIDE);
         if (onHide)
         {
             onHide.call(currentTarget, event);
@@ -272,7 +285,7 @@ const hideHiTooltipContent = function (event, currentTarget = null)
         $tooltip.style.left = "unset";
         $tooltip.classList.add("hitooltip-hidden");
 
-        const onHidden = getOption(OPTIONS.ON_HIDDEN);
+        const onHidden = getOption(currentTarget, OPTIONS.ON_HIDDEN);
         if (onHidden)
         {
             onHidden.call(currentTarget, event); ;
@@ -284,7 +297,7 @@ const revealHiTooltipContent = function (event, currentTarget)
 {
     const { $tooltip } = getTooltipCharacteristics();
 
-    const onShow = getOption(OPTIONS.ON_SHOW);
+    const onShow = getOption(currentTarget, OPTIONS.ON_SHOW);
     if (onShow)
     {
         onShow.call(currentTarget, event);
@@ -293,7 +306,7 @@ const revealHiTooltipContent = function (event, currentTarget)
     $tooltip.classList.add("hitooltip-shown");
     $tooltip.classList.remove("hitooltip-hidden");
 
-    const onShown = getOption(OPTIONS.ON_SHOWN);
+    const onShown = getOption(currentTarget, OPTIONS.ON_SHOWN);
     if (onShown)
     {
         onShown.call(currentTarget, event);
@@ -490,7 +503,7 @@ const onMouseOver = function (event, { posTooltip = "", choices = { ...POSITIONS
 const onMouseOverDelayed = function (event)
 {
     let currentTarget = event.currentTarget;
-    if (currentTarget.dataset.hitooltipMaxViews || getOption(OPTIONS.MAX_VIEWS))
+    if (currentTarget.dataset.hitooltipMaxViews || getOption(currentTarget, OPTIONS.MAX_VIEWS))
     {
         const hitooltipId = currentTarget.dataset.hitooltipId;
         if (viewTable[hitooltipId] <= 0)
@@ -504,7 +517,7 @@ const onMouseOverDelayed = function (event)
         return;
     }
 
-    const delay = getOption(OPTIONS.DELAY);
+    const delay = getOption(currentTarget, OPTIONS.DELAY);
 
     // Timeout for the delay option
     clearTimeout(onMouseOverDelayTimerID);
@@ -518,7 +531,7 @@ const onMouseOverDelayed = function (event)
             isSameTarget = true;
 
             // Timeout for the timeout option
-            const timeout = getOption(OPTIONS.TIMEOUT);
+            const timeout = getOption(currentTarget, OPTIONS.TIMEOUT);
             clearTimeout(onMouseTimeoutTimerID);
             onMouseTimeoutTimerID = setTimeout(function ()
             {
@@ -537,7 +550,7 @@ const onMouseOut = function (event)
 const attachTooltip = function ($target)
 {
     const domHashElement = uuidv4();
-    viewTable[domHashElement] = $target.dataset.hitooltipMaxViews || getOption(OPTIONS.MAX_VIEWS);
+    viewTable[domHashElement] = $target.dataset.hitooltipMaxViews || getOption($target, OPTIONS.MAX_VIEWS);
     $target.dataset.hitooltipId = domHashElement;
     $target.addEventListener("mouseenter", onMouseEnter);
     $target.addEventListener("mousemove", onMouseOverDelayed);
@@ -553,7 +566,7 @@ const init = function ()
     $targets.forEach(attachTooltip);
 
     let totalTooltipped = $targets.length;
-    const containerSelector = getOption(OPTIONS.DYNAMIC_MONITORING);
+    const containerSelector = getOption(null, OPTIONS.DYNAMIC_MONITORING);
     if (containerSelector)
     {
         const $container = document.querySelector(containerSelector);
