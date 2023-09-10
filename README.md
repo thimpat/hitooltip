@@ -98,12 +98,8 @@ example to set options locally
 │
 └───📁 dist
 │   │
-│   └─📝 index.mjs         
-│   └─📝 style.css         
-│   
-└───📁 esm
-    │
-    └─📝 index.mjs           ⇽ Browser (unminified)
+│   └─📝 hitooltip.js         
+│   └─📝 hitooltip.css         
 
 ```
 
