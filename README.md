@@ -28,7 +28,7 @@ npm install hitooltip
     <head>
         <meta charset="UTF-8">
         <title>Title</title>
-        <link href="css/hitooltip.css" rel="stylesheet">
+        <link href="dist/hitooltip.min.css" rel="stylesheet">
     </head>
     <body>
         
@@ -36,7 +36,7 @@ npm install hitooltip
         <br/>
         <br/>
         
-        <script src="js/hitooltip.js" type="module"></script>
+        <script src="dist/hitooltip.min.js" type="module"></script>
     
     </body>
 </html>
