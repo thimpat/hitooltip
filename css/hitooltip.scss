@@ -1,0 +1,154 @@
+$bgTooltip: #333333;
+$textColor: white;
+$chevronSize: 6px;
+
+
+.hitooltip
+{
+  border-radius: 4px;
+  box-shadow: 0 1rem 2rem -.5rem rgba(0, 0, 0, 0.35);
+  box-sizing: border-box;
+  position: fixed;
+  background: $bgTooltip;
+  color: $textColor;
+  max-width: 400px;
+  opacity: 0;
+  padding: 4px 6px 4px 6px;
+  pointer-events: none;
+  transition: all ease-in-out .25s;
+  visibility: hidden;
+  width: auto;
+  z-index: 999999;
+
+  &.hitooltip-shown
+  {
+    opacity: 1;
+    transition: all ease-in-out .25s;
+    visibility: visible;
+  }
+
+  &[data-hitooltip-position="left"]
+  {
+    .hitooltip-content
+    {
+      &::before
+      {
+        border-color: transparent transparent transparent $bgTooltip;
+        border-width: $chevronSize 0 $chevronSize $chevronSize;
+        right: -5px;
+        top: calc(50% - 6px);
+      }
+    }
+  }
+
+  &[data-hitooltip-position="right"]
+  {
+    .hitooltip-content
+    {
+      &::before
+      {
+        border-color: transparent $bgTooltip transparent transparent;
+        border-width: $chevronSize $chevronSize $chevronSize 0;
+        left: -5px;
+        top: calc(50% - 6px);
+      }
+    }
+  }
+
+  &[data-hitooltip-position="top"]
+  {
+    .hitooltip-content
+    {
+      &::before
+      {
+        border-color: $bgTooltip transparent transparent transparent;
+        border-width: $chevronSize $chevronSize 0 $chevronSize;
+        left: 50%;
+        bottom: -5px;
+        transform: translate(-100%, 0);
+      }
+    }
+  }
+
+  &[data-hitooltip-position="bottom"]
+  {
+    .hitooltip-content
+    {
+      &::before
+      {
+        border-color: transparent transparent $bgTooltip transparent;
+        border-width: 0 $chevronSize $chevronSize $chevronSize;
+        left: 50%;
+        top: -5px;
+        transform: translate(-50%, 0);
+      }
+    }
+  }
+
+  .hitooltip-content
+  {
+    display: inline-block;
+    text-transform: none;
+    font-size: 13px;
+    font-weight: 800;
+    height: 100%;
+    line-height: 1;
+    user-select: none;
+    width: 100%;
+
+    &::before
+    {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-style: solid;
+    }
+
+    // Predefined
+    .hitooltip-header
+    {
+      display: block;
+      height: auto;
+      white-space: nowrap;
+      width: 100%;
+
+      .hitooltip-img
+      {
+        display: inline-block;
+        max-height: 96px;
+        max-width: 96px;
+      }
+
+      .hitooltip-h1
+      {
+        display: inline-block;
+        font-size: 1.2rem;
+      }
+    }
+
+    hr
+    {
+      margin: 0;
+    }
+
+    .hitooltip-text
+    {
+      font-size: 0.75rem;
+      font-weight: 800;
+      font-family: Helvetica, sans-serif;
+      margin: 8px 0;
+      white-space: normal;
+      height: auto;
+      overflow: hidden;
+      line-height: 1rem;
+      text-overflow: ellipsis;
+      display: inline-block;
+      text-align: left;
+      vertical-align: top;
+      width: 100%;
+    }
+
+  }
+}
+
