@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <link href="css/hitooltip.css" rel="stylesheet">
+        
+        <style>
+            body {
+                padding: 10px;
+            }
+            
+            .pushed
+            {
+                margin: 0 0 0 200px;
+            }
+            
+            .example {
+                background-color: antiquewhite;
+                border: 1px solid #726f6f;
+                cursor: default;
+                display: inline-block;
+                padding: 4px;
+            }
+            
+            .zone img
+            {
+                height: 46px;
+            }
+            
+            textarea
+            {
+                height: 200px;
+                width: 50%;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Tooltip examples</h1>
+        
+        <br/>
+        <br/>
+        
+        <!-- Example 1 -->
+        <div class="example" data-hitooltip="First example">Hover example 1</div>
+        <br/>
+        <br/>
+        
+        
+        <!-- Example 2 -->
+        <div class="example" data-hitooltip="Second example" data-hitooltip-position="left" data-hitooltip-title="Some title">Hover example 2 with title and text</div>
+        <br/>
+        <br/>
+        
+        
+        <!-- Example 3 -->
+        <div class="example" data-hitooltip="Third example" data-hitooltip-icon="images/public-domain-image.png" data-hitooltip-position="top" data-hitooltip-text="Second example" data-hitooltip-title="My title example">Hover example 3 with title, icon and text</div>
+        <br/>
+        <br/>
+        
+        
+        <!-- Example 4 -->
+        <div class="example pushed" data-hitooltip="Fourth example" data-hitooltip-position="left" data-hitooltip-template="#zone1">Hover example 4 with custom content from template</div>
+        <template id="zone1">
+            <div class="zone">
+                <img src="images/public-domain-image.png" />
+                <h1>My Title</h1>
+                <hr>
+                <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
+            </div>
+        </template>
+        <br/>
+        <br/>
+        
+        <!-- Example 5 -->
+        <div class="example pushed" data-hitooltip="Fourth example" data-hitooltip-position="left" data-hitooltip-target="#zone2">Hover example 5 with custom content</div>
+        <div style="visibility: hidden; display: none">
+            <div id="zone2">
+                <div class="zone" style="max-width: 200px">
+                    <img src="images/public-domain-image.png" />
+                    <h1>My Title</h1>
+                    <hr>
+                    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <br/>
+        
+        <!-- Example 6 -->
+        <div class="example" data-hitooltip="Sixth example" data-hitooltip-max-views="3">Hover example 6 which shows up 3 times max</div>
+        <br/>
+        <br/>
+        
+        <!-- Example 7 -->
+        <div class="example" data-hitooltip="Seventh example" data-hitooltip-position="right">Hover example 7 when there isn't enough space</div>
+        <br/>
+        <br/>
+        
+        <script src="js/hitooltip.js" type="module"></script>
+        
+    </body>
+</html>
