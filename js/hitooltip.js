@@ -171,6 +171,13 @@ const generateHiTooltipContent = function ($div)
         $template.innerHTML = `<div class="hitooltip-header"><img src="${iconPath}" alt="tooltip-content" class="hitooltip-img" /><h1 class="hitooltip-h1">${titleText}</h1></div>`;
         return $template;
     }
+    else if (iconPath && text)
+    {
+        const $template = document.createElement("div");
+        $template.classList.add("hitooltip-inner-content");
+        $template.innerHTML = `<div class="hitooltip-header"><img src="${iconPath}" alt="tooltip-content" class="hitooltip-img" /><h1 class="hitooltip-h1">${text}</h1></div>`;
+        return $template;
+    }
     else if (iconPath)
     {
         const $template = document.createElement("div");
