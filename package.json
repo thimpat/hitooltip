@@ -2,7 +2,7 @@
   "name": "hitooltip",
   "version": "1.0.0",
   "description": "",
-  "main": "js/hitooltip.js",
+  "main": "dist/hitooltip.min.js",
   "scripts": {
     "compile:scss:min": "sass.cmd css/hitooltip.scss:./dist/hitooltip.min.css --style=compressed --no-source-map",
     "compile:scss:standard": "sass.cmd css/hitooltip.scss:./dist/hitooltip.css --no-source-map",
@@ -17,8 +17,8 @@
   "typings": "./index.d.mts",
   "type": "module",
   "exports": {
-    "import": "./esm/index.mjs",
-    "browser": "./esm/index.mjs"
+    "import": "./dist/hitooltip.min.js",
+    "browser": "./dist/hitooltip.min.js"
   },
   "dependencies": {
     "sass": "^1.66.1"
