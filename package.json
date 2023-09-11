@@ -21,11 +21,9 @@
     "import": "./dist/hitooltip.min.js",
     "browser": "./dist/hitooltip.min.js"
   },
-  "dependencies": {
-    "sass": "^1.66.1"
-  },
   "devDependencies": {
     "genserve": "^5.7.1",
+    "sass": "^1.66.1",
     "uglify-js": "^3.17.4"
   }
 }
