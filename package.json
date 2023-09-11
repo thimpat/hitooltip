@@ -12,9 +12,13 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:all": "npm run compile:scss && npm run minify:js"
   },
-  "keywords": [],
+  "keywords": ["tooltips", "tooltip"],
   "author": "Patrice THIMOTHEE",
-  "license": "ISC",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thimpat/hitooltip.git"
+  },
   "typings": "./index.d.mts",
   "type": "module",
   "exports": {
