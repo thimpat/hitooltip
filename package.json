@@ -22,6 +22,7 @@
     "type": "git",
     "url": "https://github.com/thimpat/hitooltip.git"
   },
+  "homepage": "https://github.com/thimpat/hitooltip",
   "typings": "./index.d.mts",
   "type": "module",
   "exports": {
