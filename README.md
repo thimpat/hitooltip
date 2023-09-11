@@ -63,14 +63,15 @@ npm run demo
 ## Options
 
 
-| name                              | description                                         | default       | expect            | HTML Attribute           |
-|-----------------------------------|-----------------------------------------------------|---------------|-------------------|--------------------------|
-| delay                             | Delay before displaying tooltip                     | 250ms         | number            | data-hitooltip-delay     |
-| speed                             | Animation duration for the transition to happen     | 500ms         | number            | data-hitooltip-speed     |
-| timeout                           | Tooltip lifetime                                    | 3000ms        | number            | data-hitooltip-timeout   |
-| maxViews                          | Number of times a tooltip can appear on the element | 0 (unlimited) | number            | data-hitooltip-max-views |
-| dynamicMonitoring                 | Whether to consider elements added dynamically      | undefined     | string (selector) | N/A                      |
-| onHide, onHidden, onShow, onShown | callbacks                                           |               |                   | N/A                      |
+| name                              | description                                         | default       | expect                      | HTML Attribute                |
+|-----------------------------------|-----------------------------------------------------|---------------|-----------------------------|-------------------------------|
+| delay                             | Delay before displaying tooltip                     | 250ms         | number                      | data-hitooltip-delay          |
+| speed                             | Animation duration for the transition to happen     | 500ms         | number                      | data-hitooltip-speed          |
+| timeout                           | Tooltip lifetime                                    | 3000ms        | number                      | data-hitooltip-timeout        |
+| maxViews                          | Number of times a tooltip can appear on the element | 0 (unlimited) | number                      | data-hitooltip-max-views      |
+| animationType                     | Animation type                                      | "smooth"      | "smooth", "fade" or "none"  | data-hitooltip-animation-type |
+| dynamicMonitoring                 | Whether to consider elements added dynamically      | undefined     | string (selector)           | N/A                           |
+| onHide, onHidden, onShow, onShown | callbacks                                           |               |                             | N/A                           |
 
 
 example to set options globally
