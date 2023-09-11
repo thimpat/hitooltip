@@ -5,11 +5,24 @@ const POSITIONS = {
     TOP: "top"
 };
 
+const ANIMATION_STYLES = {
+    SMOOTH: "all ease-in-out .25s",
+    FADE: "opacity ease-in-out .25s",
+    NONE: "none"
+};
+
+const ANIMATION_TYPES = {
+    SMOOTH: "smooth",
+    FADE: "fade",
+    NONE: "none"
+};
+
 const OPTIONS = {
     SPEED: "speed",
     DELAY: "delay",
     TIMEOUT: "timeout",
     SECONDARY_DELAY: "secondaryDelay",
+    ANIMATION_TYPE: "animationType",
     ON_HIDE: "onHide",
     ON_HIDDEN: "onHidden",
     ON_SHOW: "onShow",
@@ -40,6 +53,7 @@ const options = {
     [OPTIONS.DELAY]: 500,
     [OPTIONS.TIMEOUT]: 3000,
     [OPTIONS.SECONDARY_DELAY]: 500,
+    [OPTIONS.ANIMATION_TYPE]: ANIMATION_TYPES.SMOOTH,
     [OPTIONS.ON_HIDE]: null,
     [OPTIONS.ON_HIDDEN]: null,
     [OPTIONS.ON_SHOW]: null,
@@ -523,6 +537,13 @@ const onMouseOverDelayed = function (event)
     clearTimeout(onMouseOverDelayTimerID);
     onMouseOverDelayTimerID = setTimeout(function ()
     {
+        const animationType = getOption(currentTarget, OPTIONS.ANIMATION_TYPE);
+        if (animationType)
+        {
+            const { $tooltip } = getTooltipCharacteristics();
+            $tooltip.style.transition = ANIMATION_STYLES[animationType.toUpperCase()];
+        }
+
         onMouseOverDelayTimerID = null;
         const displayed = onMouseOver(event, { currentTarget });
 
@@ -552,6 +573,7 @@ const attachTooltip = function ($target)
     const domHashElement = uuidv4();
     viewTable[domHashElement] = $target.dataset.hitooltipMaxViews || getOption($target, OPTIONS.MAX_VIEWS);
     $target.dataset.hitooltipId = domHashElement;
+
     $target.addEventListener("mouseenter", onMouseEnter);
     $target.addEventListener("mousemove", onMouseOverDelayed);
     $target.addEventListener("mouseout", onMouseOut);
