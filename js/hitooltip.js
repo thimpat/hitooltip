@@ -59,7 +59,7 @@ const options = {
     [OPTIONS.ON_SHOW]: null,
     [OPTIONS.ON_SHOWN]: null,
     [OPTIONS.MAX_VIEWS]: 0,
-    [OPTIONS.DYNAMIC_MONITORING]: false
+    [OPTIONS.DYNAMIC_MONITORING]: "body"
 };
 
 let onMouseOverDelayTimerID, onMouseOutTimerID, onMouseTimeoutTimerID;
