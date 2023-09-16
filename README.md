@@ -70,7 +70,7 @@ npm run demo
 | timeout                           | Tooltip lifetime                                    | 3000ms        | number                      | data-hitooltip-timeout        |
 | maxViews                          | Number of times a tooltip can appear on the element | 0 (unlimited) | number                      | data-hitooltip-max-views      |
 | animationType                     | Animation type                                      | "smooth"      | "smooth", "fade" or "none"  | data-hitooltip-animation-type |
-| dynamicMonitoring                 | Whether to consider elements added dynamically      | undefined     | string (selector)           | N/A                           |
+| dynamicMonitoring                 | Whether to consider elements added dynamically      | "body"        | string (selector)           | N/A                           |
 | onHide, onHidden, onShow, onShown | callbacks                                           |               |                             | N/A                           |
 
 
@@ -80,7 +80,7 @@ example to set options globally
 import {setHiTooltipOptions} from "hitooltip";
 
 setHiTooltipOptions({ speed: 250, maxViews: 10 });
-setHiTooltipOptions({ dynamicMonitoring: "body" });
+setHiTooltipOptions({ dynamicMonitoring: "" });
 ```
 
 example to set options locally
