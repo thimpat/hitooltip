@@ -612,5 +612,5 @@ const init = function ()
     }
 };
 
-export const startToolTip =  init;
+export const hitooltip =  init;
 

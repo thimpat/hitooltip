@@ -37,8 +37,8 @@ npm install hitooltip
         <br/>
 
         <script type="module">
-            import {startToolTip} from "./hitooltip.min.js";
-            startToolTip();
+            import {hitooltip} from "./hitooltip.mjs";
+            hitooltip();
         </script>
 
     </body>
@@ -80,11 +80,11 @@ npm run demo
 example to set options globally
 
 ```javascript
-import {startToolTip, setHiTooltipOptions} from "hitooltip";
+import {hitooltip, setHiTooltipOptions} from "hitooltip";
 
 setHiTooltipOptions({ speed: 250, maxViews: 10 });
 setHiTooltipOptions({ dynamicMonitoring: "" });
-startToolTip();
+hitooltip();
 ```
 
 example to set options locally
