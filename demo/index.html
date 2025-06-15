@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Title</title>
-        <link href="dist/hitooltip.min.css" rel="stylesheet">
+        <link href="./hitooltip.min.css" rel="stylesheet">
         
         <style>
             body {
@@ -54,7 +54,7 @@
         
         
         <!-- Example 3 -->
-        <div class="example" data-hitooltip="Third example" data-hitooltip-icon="images/public-domain-image.png" data-hitooltip-position="top" data-hitooltip-text="Second example" data-hitooltip-title="My title example">Hover example 3 with title, icon and text</div>
+        <div class="example" data-hitooltip="Third example" data-hitooltip-icon="./public-domain-image.png" data-hitooltip-position="top" data-hitooltip-text="Second example" data-hitooltip-title="My title example">Hover example 3 with title, icon and text</div>
         <br/>
         <br/>
         
@@ -63,7 +63,7 @@
         <div class="example pushed" data-hitooltip="Fourth example" data-hitooltip-position="left" data-hitooltip-template="#zone1">Hover example 4 with custom content from template</div>
         <template id="zone1">
             <div class="zone">
-                <img src="images/public-domain-image.png" />
+                <img src=".././public-domain-image.png" />
                 <h1>My Title</h1>
                 <hr>
                 <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
@@ -77,7 +77,7 @@
         <div style="visibility: hidden; display: none">
             <div id="zone2">
                 <div class="zone" style="max-width: 200px">
-                    <img src="images/public-domain-image.png" />
+                    <img src=".././public-domain-image.png" />
                     <h1>My Title</h1>
                     <hr>
                     <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
@@ -98,11 +98,17 @@
         <br/>
         
         <!-- Example 8 -->
-        <div class="example" data-hitooltip="Heighth example" data-hitooltip-timeout="500">Hover example 8 with a smaller timeout</div>
+        <div class="example" data-hitooltip="Height example" data-hitooltip-timeout="500">Hover example 8 with a smaller timeout</div>
         <br/>
         <br/>
-        
-        <script src="dist/hitooltip.min.js" type="module"></script>
-        
+
+        <script type="module">
+            import {startToolTip, setHiTooltipOptions} from "./hitooltip.min.js";
+            setHiTooltipOptions({ speed: 250, maxViews: 10 });
+            setHiTooltipOptions({ dynamicMonitoring: "" });
+            startToolTip();
+        </script>
+
+
     </body>
 </html>
