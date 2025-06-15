@@ -8,7 +8,7 @@
     "compile:scss:standard": "sass.cmd css/hitooltip.scss:./dist/hitooltip.css --no-source-map",
     "compile:scss": "npm run compile:scss:standard && npm run compile:scss:min",
     "minify:js": "uglifyjs js/hitooltip.js -o dist/hitooltip.min.js",
-    "demo": "npm run build:all && genserve restart tooltipdemo --dir ./",
+    "demo": "npm run build:all && clonefile --force --source demo/index.html --source images/ dist/ && genserve restart tooltipdemo --dir ./dist/",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:all": "npm run compile:scss && npm run minify:js"
   },
@@ -30,6 +30,7 @@
     "browser": "./dist/hitooltip.min.js"
   },
   "devDependencies": {
+    "clonefile": "^3.8.4",
     "genserve": "^5.7.1",
     "sass": "^1.66.1",
     "uglify-js": "^3.17.4"
