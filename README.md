@@ -35,9 +35,12 @@ npm install hitooltip
         <div class="example" data-hitooltip="Example">Hover examples</div>
         <br/>
         <br/>
-        
-        <script src="dist/hitooltip.min.js" type="module"></script>
-    
+
+        <script type="module">
+            import {startToolTip} from "./hitooltip.min.js";
+            startToolTip();
+        </script>
+
     </body>
 </html>
 
@@ -77,10 +80,11 @@ npm run demo
 example to set options globally
 
 ```javascript
-import {setHiTooltipOptions} from "hitooltip";
+import {startToolTip, setHiTooltipOptions} from "hitooltip";
 
 setHiTooltipOptions({ speed: 250, maxViews: 10 });
 setHiTooltipOptions({ dynamicMonitoring: "" });
+startToolTip();
 ```
 
 example to set options locally
