@@ -161,7 +161,11 @@ const generateHiTooltipContent = function ($div)
     if (selectorTpl)
     {
         const template = document.querySelector(selectorTpl);
+        if (template instanceof HTMLTemplateElement) {
         return template.content.cloneNode(true);
+    }
+
+        return template.cloneNode(true);
     }
 
     // Tooltip content from a selector
