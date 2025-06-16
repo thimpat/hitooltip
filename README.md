@@ -103,8 +103,15 @@ example to set options locally
 │
 └───📁 dist
 │   │
-│   └─📝 hitooltip.js         
+│   └─📝 hitooltip.min.mjs         
+│   └─📝 hitooltip.min.css         
+└───📁 js
+│   │
+│   └─📝 hitooltip.mjs         
 │   └─📝 hitooltip.css         
+└───📁 css
+│   │
+│   └─📝 hitooltip.scss         
 
 ```
 
