@@ -7,7 +7,7 @@
     "compile:scss:min": "sass.cmd css/hitooltip.scss:./dist/hitooltip.min.css --style=compressed --no-source-map",
     "compile:scss:standard": "sass.cmd css/hitooltip.scss:./dist/hitooltip.css --no-source-map",
     "compile:scss": "npm run compile:scss:standard && npm run compile:scss:min",
-    "minify:js": "uglifyjs js/hitooltip.js -o dist/hitooltip.min.js",
+    "minify:js": "uglifyjs js/hitooltip.js -o dist/hitooltip.min.js && uglifyjs js/hitooltip.mjs -o dist/hitooltip.min.mjs",
     "demo": "npm run build:all && clonefile --force --source demo/index.html --source images/ dist/ && genserve restart tooltipdemo --dir ./dist/",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:all": "npm run compile:scss && npm run minify:js"
