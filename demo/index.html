@@ -63,7 +63,7 @@
         <div class="example pushed" data-hitooltip="Fourth example" data-hitooltip-position="left" data-hitooltip-template="#zone1">Hover example 4 with custom content from template</div>
         <template id="zone1">
             <div class="zone">
-                <img src=".././public-domain-image.png" />
+                <img src="./public-domain-image.png" />
                 <h1>My Title</h1>
                 <hr>
                 <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
@@ -77,7 +77,7 @@
         <div style="visibility: hidden; display: none">
             <div id="zone2">
                 <div class="zone" style="max-width: 200px">
-                    <img src=".././public-domain-image.png" />
+                    <img src="./public-domain-image.png" />
                     <h1>My Title</h1>
                     <hr>
                     <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
@@ -103,7 +103,7 @@
         <br/>
 
         <script type="module">
-            import {hitooltip, setHiTooltipOptions} from "./hitooltip.min.js";
+            import {hitooltip, setHiTooltipOptions} from "./hitooltip.min.mjs";
             setHiTooltipOptions({ speed: 250, maxViews: 10 });
             setHiTooltipOptions({ dynamicMonitoring: "" });
             hitooltip();
