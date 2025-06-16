@@ -26,8 +26,8 @@
   "typings": "./index.d.mts",
   "type": "module",
   "exports": {
-    "import": "./dist/hitooltip.min.js",
-    "browser": "./dist/hitooltip.min.js"
+    "import": "./dist/hitooltip.min.mjs",
+    "browser": "./dist/hitooltip.min.mjs"
   },
   "devDependencies": {
     "clonefile": "^3.8.4",
