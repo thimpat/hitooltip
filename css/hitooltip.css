@@ -95,3 +95,7 @@
     vertical-align: top;
     width: 100%;
 }
+
+.hitooltip-hidden {
+    display: none;
+}
