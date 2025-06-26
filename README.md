@@ -96,6 +96,46 @@ example to set options locally
 
 ---
 
+
+## Examples
+
+### Display a tooltip with title, text and image (pre-defined layout)
+
+```html
+        <div class="example" data-hitooltip="Third example" data-hitooltip-icon="./public-domain-image.png" data-hitooltip-position="top" data-hitooltip-text="Second example" data-hitooltip-title="My title example">Hover example 3 with title, icon and text</div>
+```
+
+### Display a tooltip containing HTML code
+
+```html
+        <div class="example pushed" data-hitooltip="Fourth example" data-hitooltip-position="left" data-hitooltip-target="#zone2">Hover example 5 with custom content</div>
+        <div style="visibility: hidden; display: none">
+            <div id="zone2">
+                <div class="zone" style="max-width: 200px">
+                    <img src="./public-domain-image.png" />
+                    <h1>My Title</h1>
+                    <hr>
+                    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+                </div>
+            </div>
+        </div>
+```
+
+### Display a tooltip containing HTML code (Second method)
+
+```html
+        <div class="example pushed" data-hitooltip="Fourth example" data-hitooltip-position="left" data-hitooltip-target="#zone2">Hover example 5 with custom content</div>
+        <div id="zone2" class="hitooltip-hidden">
+            <div class="zone" style="max-width: 200px">
+                <img src="./public-domain-image.png" />
+                <h1>My Title</h1>
+                <hr>
+                <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+            </div>
+        </div>
+```
+
+
 ## Package
 
 ```
