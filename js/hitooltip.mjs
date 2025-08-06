@@ -132,6 +132,9 @@ export const applyHiTooltipOptions = function ($tooltip)
     }
 };
 
+/**
+ * Create the unique tooltip object
+ */
 export const createHiTooltip = function ()
 {
     const $tooltip = document.createElement("tooltip");
@@ -572,6 +575,10 @@ const onMouseOut = function (event)
     hideHiTooltipContent(event);
 };
 
+/**
+ * Set a listener on every tag that has the hi-tooltip properties
+ * @param $target
+ */
 const attachTooltip = function ($target)
 {
     const domHashElement = uuidv4();
@@ -583,19 +590,29 @@ const attachTooltip = function ($target)
     $target.addEventListener("mouseout", onMouseOut);
 };
 
+const onGlobalMouseClick = function (event) {
+    hideHiTooltipContent(event);
+}
+
 const init = function ()
 {
+    // Reference all tags that contain the hi-tooltips property
     let $targets = [...document.querySelectorAll("[data-hitooltip]")];
 
+    // Create a unique tooltip object (Only the content will change)
     createHiTooltip();
 
+    // Set a listener on selected tags
     $targets.forEach(attachTooltip);
 
     let totalTooltipped = $targets.length;
+
+    // containerSelector by default is body
     const containerSelector = getOption(null, OPTIONS.DYNAMIC_MONITORING);
     if (containerSelector)
     {
         const $container = document.querySelector(containerSelector);
+        $container.addEventListener("click", onGlobalMouseClick);
         const observer = new MutationObserver(function (mutations)
         {
             let $targets = [...document.querySelectorAll("[data-hitooltip]")];
